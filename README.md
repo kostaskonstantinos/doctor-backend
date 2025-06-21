@@ -1,8 +1,9 @@
-#  Doctor Backend
 
-Java backend εφαρμογή για κλινική, υλοποιημένη με Jakarta EE, Hibernate και PostgreSQL.
+# Doctor Backend
 
-##  Τεχνολογίες
+Java backend application for a clinic, built using Jakarta EE, Hibernate, and PostgreSQL.
+
+##  Technologies
 
 - Java 17+
 - Jakarta EE (JAX-RS, JPA)
@@ -12,24 +13,24 @@ Java backend εφαρμογή για κλινική, υλοποιημένη με
 - Maven
 - JWT (Authentication)
 - BCrypt (Password hashing)
-- H2 (In-memory DB για testing)
+- H2 (In-memory DB for testing)
 
-##  Δομή
+##  Project Structure
 
 ```
 doctor-backend/
 ├── src/
 │   ├── main/
-│   │   ├── java/           # Κώδικας εφαρμογής ( entities, services)
-│   │   └── resources/      # persistence.xml, config
+│   │   ├── java/           # Application source code (entities, services)
+│   │   └── resources/      # Configuration files (e.g., persistence.xml)
 │   └── test/               # Unit tests
-├── pom.xml                 # Maven dependencies και build settings
+├── pom.xml                 # Maven configuration
 └── README.md
 ```
 
-## ⚙️ Ρυθμίσεις
+##  Configuration
 
-### 📄 `persistence.xml`
+### `persistence.xml`
 
 ```xml
 <persistence-unit name="ClinicPU" transaction-type="JTA">
@@ -43,35 +44,36 @@ doctor-backend/
 </persistence-unit>
 ```
 
-Για testing υπάρχει `ClinicTestPU` που χρησιμοποιεί H2.
+For testing, a separate `ClinicTestPU` configuration using H2 is provided.
 
 ---
 
-##  Τρέξιμο Tests
+## Run Tests
 
 ```bash
 mvn test
 ```
 
----
+
 
 ##  Build & Deploy
 
-1. **Build** το αρχείο `.war`:
+1. **Build the `.war` file**:
 ```bash
 mvn clean package
 ```
 
-2. **Deploy** σε Payara:
-   - Πήγαινε στο Payara admin console
-   - Κάνε deploy το αρχείο `target/doctor-backend.war`
+2. **Deploy** to Payara:
+   - Access the Payara Admin Console
+   - Deploy `target/doctor-backend.war`
 
----
+
 
 ##  Authentication
 
-Χρησιμοποιείται JWT token-based login.
-- Το token αποθηκεύεται στο frontend και αποστέλλεται ως `Authorization: Bearer <token>` σε κάθε αίτημα.
+JWT token-based login is used.  
+The token is stored in the frontend and sent via the `Authorization: Bearer <token>` header.
 
----
+
+
 
