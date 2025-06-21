@@ -1,0 +1,65 @@
+package com.clinic.exception;
+
+import jakarta.ws.rs.core.Response;
+
+public enum ErrorCode {
+	VALIDATION_ERROR, DUPLICATE_ENTITY, // entityexistsmapper
+	INTERNAL_ERROR, // genericexceptionmapper
+	BAD_REQUEST, FORBIDDEN, NOT_FOUND, CONFLICT, SERVER_ERROR, UNAUTHORIZED, SLOT_ALREADY_BOOKED, SLOT_INVALID_TIME,
+	SLOT_OUT_OF_HOURS, SLOT_ALREADY_EXISTS, SLOT_CREATED, SLOT_BOOKED, SLOT_CANCELED, SLOT_DELETED, SLOT_NOT_FOUND,
+	DOCTOR_CREATED, DOCTOR_UPDATED, DOCTOR_ALREADY_EXISTS, DOCTOR_DELETED, DOCTOR_NOT_FOUND, DOCTOR_HAS_BOOKINGS,
+	PATIENT_ALREADY_EXISTS, PATIENT_NOT_FOUND, PATIENT_HAS_BOOKINGS, PATIENT_CREATED, PATIENT_DELETED, PATIENT_UPDATED,
+	LOGIN_FAILED, LOGIN_SUCCESSFUL, INVALID_CREDENTIALS, INVALID_EMAIL, INVALID_PASSWORD, INVALID_NAME, INVALID_PHONE,
+	INVALID_DOB;
+
+	public Response.Status toHttpStatus() {
+		switch (this) {
+		// === 409 Conflict ===
+		case DOCTOR_ALREADY_EXISTS:
+		case DOCTOR_HAS_BOOKINGS:
+		case PATIENT_ALREADY_EXISTS:
+		case PATIENT_HAS_BOOKINGS:
+		case SLOT_ALREADY_BOOKED:
+		case SLOT_ALREADY_EXISTS:
+		case CONFLICT:
+			return Response.Status.CONFLICT;
+
+		// === 404 Not Found ===
+		case NOT_FOUND:
+		case SLOT_NOT_FOUND:
+		case DOCTOR_NOT_FOUND:
+		case PATIENT_NOT_FOUND:
+			return Response.Status.NOT_FOUND;
+
+		// === 401 Unauthorized ===
+		case UNAUTHORIZED:
+		case INVALID_CREDENTIALS:
+		case LOGIN_FAILED:
+			return Response.Status.UNAUTHORIZED;
+
+		// === 400 Bad Request ===
+		case BAD_REQUEST:
+		case VALIDATION_ERROR:
+		case INVALID_EMAIL:
+		case INVALID_PASSWORD:
+		case INVALID_NAME:
+		case INVALID_PHONE:
+		case INVALID_DOB:
+		case SLOT_INVALID_TIME:
+		case SLOT_OUT_OF_HOURS:
+			return Response.Status.BAD_REQUEST;
+
+		// === 403 Forbidden ===
+		case FORBIDDEN:
+			return Response.Status.FORBIDDEN;
+
+		// === 500 Internal Server Error ===
+		case SERVER_ERROR:
+			return Response.Status.INTERNAL_SERVER_ERROR;
+
+		// === Default ===
+		default:
+			return Response.Status.BAD_REQUEST;
+		}
+	}
+}
