@@ -9,7 +9,8 @@ import com.clinic.entity.Patient;
 import com.clinic.exception.ApiException;
 import com.clinic.exception.ErrorCode;
 
-import jakarta.ejb.Stateless;
+//import jakarta.ejb.Stateless;
+import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
 import jakarta.persistence.*;
 import jakarta.transaction.Transactional;
@@ -20,7 +21,7 @@ import java.util.stream.Collectors;
 
 import org.mindrot.jbcrypt.BCrypt;
 
-@Stateless
+@ApplicationScoped
 public class PatientService {
     @PersistenceContext(unitName = "ClinicPU")
     private EntityManager em;

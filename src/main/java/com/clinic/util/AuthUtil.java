@@ -67,6 +67,7 @@ public class AuthUtil {
 
 	public static void requirePatientDoctorOrAdmin(SecurityContext context, String slotDoctorEmail,
 			String patientEmailApplicable) {
+		//i should pay attention in case a user has more than one roles
 		String role = context.isUserInRole("admin") ? "admin"
 				: context.isUserInRole("patient") ? "patient" : context.isUserInRole("doctor") ? "doctor" : null;
 

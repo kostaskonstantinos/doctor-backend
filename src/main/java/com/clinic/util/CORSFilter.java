@@ -10,7 +10,8 @@ import jakarta.ws.rs.ext.Provider;
 import java.io.IOException;
 
 @Provider
-@Priority(Priorities.AUTHENTICATION)
+//@Priority(Priorities.AUTHENTICATION)
+@Priority(Priorities.HEADER_DECORATOR)
 public class CORSFilter implements ContainerRequestFilter, ContainerResponseFilter {
 
 	@Override

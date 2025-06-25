@@ -35,8 +35,8 @@ public class PatientAdapter {
 				patient.getAddress(), patient.getDateOfBirth(), patient.getGender());
 	}
 
-	public PatientViewDTO toViewDTOWithoutId(Patient patient) {
-		return new PatientViewDTO(patient.getName(), patient.getEmail(), patient.getPhoneNumber(), patient.getAddress(),
-				patient.getDateOfBirth(), patient.getGender());
-	}
+//	public PatientViewDTO toViewDTOWithoutId(Patient patient) {
+//		return new PatientViewDTO(patient.getName(), patient.getEmail(), patient.getPhoneNumber(), patient.getAddress(),
+//				patient.getDateOfBirth(), patient.getGender());
+//	}
 }

@@ -33,7 +33,7 @@ public class SlotRequest {
 	private Long doctorId;
 
 	@NotNull(message = "{slot.startTime.required}")
-	@JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm") // ISO 8601
+	@JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm") 
 	private LocalDateTime startTime;
 
 	public SlotRequest() {

@@ -17,7 +17,7 @@ public class JwtFilter implements ContainerRequestFilter {
 
 	@Override
 	public void filter(ContainerRequestContext requestContext) throws IOException {
-		
+		//it can be deleted cause it is also checked on corsfilter that runs first
 	    if ("OPTIONS".equalsIgnoreCase(requestContext.getMethod())) return;
 
 	    String path = requestContext.getUriInfo().getPath();
@@ -40,7 +40,7 @@ public class JwtFilter implements ContainerRequestFilter {
             String email = claims.getSubject();
             String role = claims.get("role", String.class);
 
-            final SecurityContext originalContext = requestContext.getSecurityContext();
+            final SecurityContext originalContext = requestContext.getSecurityContext();// in case https
 
             requestContext.setSecurityContext(new SecurityContext() {
                 @Override

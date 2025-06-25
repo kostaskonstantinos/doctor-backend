@@ -11,14 +11,12 @@ import jakarta.enterprise.context.ApplicationScoped;
 public class DoctorAdapter {
 
 	// hashes the password
-	// @Override
 	public Doctor toEntity(DoctorDTO dto) {
 		return new Doctor.Builder().name(dto.getName()).specialization(dto.getSpecialization()).email(dto.getEmail())
 				.password(PasswordUtil.hashPassword(dto.getPassword())).phoneNumber(dto.getPhoneNumber())
 				.address(dto.getAddress()).workingHours(dto.getWorkingHours()).build();
 	}
 
-	// @Override
 	public DoctorDTO toDTO(Doctor doctor) {
 		DoctorDTO dto = new DoctorDTO();
 		dto.setName(doctor.getName());
@@ -36,9 +34,9 @@ public class DoctorAdapter {
 				doctor.getPhoneNumber(), doctor.getAddress(), doctor.getWorkingHours());
 	}
 
-	public DoctorViewDTO toViewDTOWOId(Doctor doctor) {
-		return new DoctorViewDTO(doctor.getName(), doctor.getEmail(), doctor.getSpecialization(),
-				doctor.getPhoneNumber(), doctor.getAddress(), doctor.getWorkingHours());
-
-	}
+//	public DoctorViewDTO toViewDTOWOId(Doctor doctor) {
+//		return new DoctorViewDTO(doctor.getName(), doctor.getEmail(), doctor.getSpecialization(),
+//				doctor.getPhoneNumber(), doctor.getAddress(), doctor.getWorkingHours());
+//
+//	}
 }

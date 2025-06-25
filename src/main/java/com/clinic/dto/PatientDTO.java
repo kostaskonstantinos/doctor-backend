@@ -1,7 +1,5 @@
 package com.clinic.dto;
 
-//import jakarta.validation.constraints.*;
-
 import java.time.LocalDate;
 import com.fasterxml.jackson.annotation.JsonFormat;
 

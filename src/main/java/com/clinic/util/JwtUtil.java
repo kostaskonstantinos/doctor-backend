@@ -9,7 +9,7 @@ import java.util.Date;
 
 public class JwtUtil {
 
-    // Base64-encoded 256-bit key (32 bytes). Replace this with a secure, secret value in production.
+    // Base64-encoded 256-bit key (32 bytes). Replace this with a secure, secret value in production. An .env file may be needed.
     private static final String SECRET_KEY = "u+GE3v7kKfUM97XU4flz7x3zGkj5urW+KAwkO/9x7n4=";
     private static final long EXPIRATION_TIME = 86400000; // 1 day in milliseconds
 

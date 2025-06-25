@@ -1,6 +1,7 @@
 package com.clinic.exception;
 
 public class ApiException extends RuntimeException {
+	private static final long serialVersionUID = 1L;//serialization convert to byte streams
 	private final ErrorCode code;
 	private final String field; // optional
 

@@ -13,8 +13,8 @@ public class EntityExistsMapper implements ExceptionMapper<EntityExistsException
 
 	@Override
 	public Response toResponse(EntityExistsException exception) {
-		ApiError error = new ApiError(ErrorCode.DUPLICATE_ENTITY, "Entity already exists", null);
+	
+		return ApiErrors.conflict(ErrorCode.DUPLICATE_ENTITY, "Entity already exists");
 
-		return Response.status(Response.Status.CONFLICT).entity(error).build();
 	}
 }

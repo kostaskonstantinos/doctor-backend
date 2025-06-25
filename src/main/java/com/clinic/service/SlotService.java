@@ -9,7 +9,8 @@ import com.clinic.entity.Patient;
 import com.clinic.exception.ApiException;
 import com.clinic.exception.ErrorCode;
 import com.clinic.entity.DoctorSlot;
-import jakarta.ejb.Stateless;
+//import jakarta.ejb.Stateless;
+import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import jakarta.transaction.Transactional;
@@ -19,7 +20,7 @@ import java.time.LocalDateTime;
 import java.util.List;
 import java.util.stream.Collectors;
 
-@Stateless
+@ApplicationScoped
 public class SlotService {
 
 	@PersistenceContext(unitName = "ClinicPU")

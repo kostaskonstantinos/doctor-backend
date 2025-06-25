@@ -10,12 +10,13 @@ import com.clinic.entity.Doctor;
 import com.clinic.exception.ApiException;
 import com.clinic.exception.ErrorCode;
 import com.clinic.util.PasswordUtil;
-import jakarta.ejb.Stateless;
+//import jakarta.ejb.Stateless;
+import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
 import jakarta.persistence.*;
 import jakarta.transaction.Transactional;
 
-@Stateless
+@ApplicationScoped
 public class DoctorService {
 
 	@PersistenceContext(unitName = "ClinicPU")

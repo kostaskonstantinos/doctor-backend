@@ -3,6 +3,7 @@ package com.clinic.dto;
 import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
 
+//EMAIL missing 
 public class DoctorUpdateDTO {
 
 	@Size(min = 6, message = "{password.tooShort}")

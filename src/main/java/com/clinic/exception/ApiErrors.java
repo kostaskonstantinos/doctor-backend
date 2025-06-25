@@ -8,32 +8,32 @@ import java.util.Map;
 import com.clinic.dto.SuccessResponse;
 
 public class ApiErrors {
-
+    //Status Code 400
 	public static Response badRequest(List<ApiError> errors) {
 		return Response.status(Response.Status.BAD_REQUEST).entity(Map.of("errors", errors)).build();
 	}
-
+    //Status Code 400
 	public static Response badRequest(ErrorCode code, String message) {
 		return badRequest(code, message, null);
 	}
-
+    //Status Code 400
 	public static Response badRequest(ErrorCode code, String message, String field) {
 		return badRequest(List.of(new ApiError(code, message, field)));
 	}
-
+    //Status Code 409
 	public static Response conflict(ErrorCode code, String message) {
 		return Response.status(Response.Status.CONFLICT).entity(new ApiError(code, message)).build();
 	}
-
+    //Status Code 404
 	public static Response notFound(ErrorCode code, String message) {
 		return Response.status(Response.Status.NOT_FOUND).entity(new ApiError(code, message)).build();
 	}
-
+    //Status Code 500
 	public static Response internalServerError(String message) {
 		return Response.status(Response.Status.INTERNAL_SERVER_ERROR)
 				.entity(new ApiError(ErrorCode.SERVER_ERROR, message)).build();
 	}
-
+  
 	public static Response created(ErrorCode code, String message) {
 		return Response.status(Response.Status.CREATED).entity(new SuccessResponse(code.name(), message)).build();
 	}
